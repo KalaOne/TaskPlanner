@@ -7,8 +7,10 @@ export const logIn = (credentials) => {
             credentials.email,
             credentials.password
         ).then(() => {
+            console.log("Login Successful")
             dispatch({ type: 'LOGIN_SUCCESS'})
         }).catch((err) => {
+            console.log("Login FAILED")
             dispatch({ type: 'LOGIN_ERROR', err})
         })
     }
