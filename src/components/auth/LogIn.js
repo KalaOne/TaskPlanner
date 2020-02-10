@@ -49,6 +49,7 @@ class LogIn extends Component {
 }
 
 const mapStateToProps = (state) => {
+    console.log("Loggin attempt, stateToProps");
     return{
         authError: state.auth.authError,
         auth: state.firebase.auth

@@ -1,8 +1,8 @@
 import firebase from 'firebase'
 
 export const logIn = (credentials) => {
-    return (dispatch, getState) => {
-
+    console.log("Login attempt, login authActions");
+    return new Promise ((dispatch, getState) => {
         firebase.auth().signInWithEmailAndPassword(
             credentials.email,
             credentials.password
@@ -10,10 +10,10 @@ export const logIn = (credentials) => {
             console.log("Login Successful")
             dispatch({ type: 'LOGIN_SUCCESS'})
         }).catch((err) => {
-            console.log("Login FAILED")
+            console.log(err)
             dispatch({ type: 'LOGIN_ERROR', err})
         })
-    }
+    });
 }
 
 export const logOut = () => {
